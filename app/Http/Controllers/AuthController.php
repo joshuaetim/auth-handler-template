@@ -24,7 +24,7 @@ class AuthController extends APIController
         ]);
 
         if($validator->fails()){
-            return $this->sendError('Validation Error', $validator->errors(), 422);
+            return $this->sendError($validator->errors(), 'Validation Error', 422);
         }
 
         $input['password'] = bcrypt($input['password']);
@@ -45,7 +45,7 @@ class AuthController extends APIController
         ]);
 
         if($validator->fails()){
-            return $this->sendError('Validation Error', $validator->errors(), 422);
+            return $this->sendError($validator->errors(), 'Validation Error', 422);
         }
 
         try {
